@@ -7,7 +7,7 @@ gem 'devise'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql'
-
+gem 'will_paginate', :git => "git://github.com/akitaonrails/will_paginate.git", :branch => "rails3.1"
 
 
 # Gems used only for assets and not required
