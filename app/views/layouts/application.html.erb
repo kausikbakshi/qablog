@@ -1,14 +1,82 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Qablog</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>Qablog</title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="inner_body">
+      <div>&nbsp;</div>
+      <div class="main_wrap">
+        <div class="FR sign">
+          <ul>
+            <% if user_signed_in? %>
+              <li><a><%= link_to 'Account',edit_user_registration_path %></a></li>
+              <li><a><%= link_to 'Log Out',destroy_user_session_path, :method => 'delete'%></a></li>
+            <% else %>
+              <li><a><%= link_to 'Sign In', new_user_session_path%></a></li>
+              <li><a><%= link_to 'Sign Up', new_user_registration_path%></a></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="FL" style="padding:5px 10px 0 0;">
+          <div class="FL text"></div>
+          <div class="FL"></div>
+          <div class="clear"></div>
+        </div>
+        <div class="FL" style="padding:5px 5px 0 0;">
+          <div class="FL text">Search</div>
+          <div class="FL"><input name="" type="text"  class="text_aria"/></div>
+          <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        <div style="height:10px"></div>
+      </div>
+      <div class="nav_bg">
+        <div class="main_wrap">
+          <div class="nab">
+            <ul>
+              <li style="background:none;"><a><%= link_to 'Home' %></a></li>
+              <li><a><%= link_to 'About Us' %></a></li>
+              <li><a><%= link_to 'Carrier' %></a></li>
+              <li><a><%= link_to 'Blog' %></a></li>
+              <li><a><%= link_to 'Contact Us' %></a></li>
+              <li>&nbsp;</li>
+            </ul>
+          </div>
+        </div>        
+      </div>
+      <div>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
+      <div class="main_wrap">
+        <div style="height:8px;"></div>
+        <div></div>
+        <div class="body_bg" style="height:500%;overflow: hidden;padding-left: 20px;">
+          <div style=" height: 20px"></div>
+          <%= yield %>
+          <div style=" height: 400px"></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="main_wrap">
+        <div class="footer_nab">
+          <ul>            
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Carrier</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Links</a></li>
+            <li>&nbsp;</li>
+          </ul>
+        </div>
+        <div class="clear"></div>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
 </html>

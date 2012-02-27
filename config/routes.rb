@@ -1,4 +1,15 @@
 Qablog::Application.routes.draw do
+  devise_for :users
+
+
+  
+  resources :users
+  resources :questions
+  resources :answers
+  resources :home
+
+  root :to => "home#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
