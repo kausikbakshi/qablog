@@ -74,6 +74,16 @@ a{ outline: none;}
 	color:#FFF;
 	padding-right:8px;
 }
+.head_text{
+	font: bold 36px/49px "Arial", Helvetica, sans-serif;
+	color:#FFF;
+	padding-right:8px;
+}
+.textnew{
+	font: bold 14px/24px "Arial", Helvetica, sans-serif;
+	color:#FFF;
+	padding-right:8px;
+}
 .text_aria{
 	width:200px;
 	height:20px;

@@ -8,7 +8,7 @@ gem 'devise'
 
 gem 'mysql'
 gem 'will_paginate', :git => "git://github.com/akitaonrails/will_paginate.git", :branch => "rails3.1"
-
+gem 'gravtastic'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -11,43 +11,56 @@
       <div>&nbsp;</div>
       <div class="main_wrap">
         <div class="FR sign">
-          <ul>
-            <% if user_signed_in? %>
-              <li><a><%= link_to 'Account',edit_user_registration_path %></a></li>
-              <li><a><%= link_to 'Log Out',destroy_user_session_path, :method => 'delete'%></a></li>
-            <% else %>
-              <li><a><%= link_to 'Sign In', new_user_session_path%></a></li>
-              <li><a><%= link_to 'Sign Up', new_user_registration_path%></a></li>
-            <% end %>
-          </ul>
-        </div>
-        <div class="FL" style="padding:5px 10px 0 0;">
-          <div class="FL text"></div>
-          <div class="FL"></div>
-          <div class="clear"></div>
+          <ul></ul>
         </div>
         <div class="FL" style="padding:5px 5px 0 0;">
+          <div class="FL head_text">QA blog</div>
+          <div class="clear"></div>
+        </div>
+        <div class="FR" style="padding:5px 5px 0 0;">
           <div class="FL text">Search</div>
           <div class="FL"><input name="" type="text"  class="text_aria"/></div>
           <div class="clear"></div>
         </div>
+        <% if user_signed_in? %>
+          <div class="FR" style="padding:5px 5px 0 0;">
+            <div class="FL textnew">
+              <%= current_user.name %>&nbsp;&nbsp;<%= image_tag current_user.gravatar_url(:size => 30, :default => "identicon") %>
+            </div>
+            <div class="FL"></div>
+            <div class="clear"></div>
+          </div>
+        <% end %>
         <div class="clear"></div>
         <div style="height:10px"></div>
-      </div>
+      </div>      
       <div class="nav_bg">
+
         <div class="main_wrap">
           <div class="nab">
+
             <ul>
-              <li style="background:none;"><a><%= link_to 'Home' %></a></li>
-              <li><a><%= link_to 'About Us' %></a></li>
-              <li><a><%= link_to 'Carrier' %></a></li>
-              <li><a><%= link_to 'Blog' %></a></li>
-              <li><a><%= link_to 'Contact Us' %></a></li>
-              <li>&nbsp;</li>
+              <% if !user_signed_in? %>
+                <li style="background:none;"><%= link_to 'Home' %></li>
+                <li><%= link_to 'About Us' %></li>
+                <li><%= link_to 'Carrier' %></li>
+                <li><%= link_to 'Blog' %></li>
+                <li><%= link_to 'Contact Us' %></li>
+                <li><%= link_to 'Sign In', new_user_session_path%></li>
+                <li><%= link_to 'Sign Up', new_user_registration_path%></li>
+                <li>&nbsp;</li>
+              <% else %>
+                <li style="background:none;"><a><%= link_to 'Home' %></a></li>
+                <li><%= link_to 'Ask Question' %></li>
+                <li><%= link_to 'Account',edit_user_registration_path %></li>
+                <li><%= link_to 'Log Out',destroy_user_session_path, :method => 'delete'%></li>
+              <% end %>
             </ul>
+
           </div>
-        </div>        
+        </div>
       </div>
+
       <div>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
