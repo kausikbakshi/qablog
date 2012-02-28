@@ -1,2 +1,10 @@
-<%= @question.title %><br/>
-<%= @question.description %>
+<div style="background-color:cornsilk;padding: 5px; width: 650px;">
+  <div style="background-color:aliceblue ;padding: 5px;width: 640px;">
+    <h3>Title: <%= @question.title %></h3>
+  </div>
+  <div style="height: 4px; width: 650px;"></div>
+  <div style="background-color:aliceblue ;padding: 5px;width: 640px; word-wrap:break-word;">
+    <h3>Question:</h3><br/>
+    <%=h @question.description %>
+  </div>
+</div>
