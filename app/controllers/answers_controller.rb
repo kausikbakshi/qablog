@@ -1,8 +1,8 @@
 class AnswersController < ApplicationController
 
-  def create
+  def create    
     @question = Question.find(params[:id])
-    @answer = @question.answers.build(params[:answer])
+    @answer = @question.answers.build(params[:answer])    
     if @answer.save
       redirect_to question_path(:id => @question.id), :notice => "Thank You For Posting Your Answer"
     else

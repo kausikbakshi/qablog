@@ -11,18 +11,21 @@
   <div style="background-color:lightcyan ;padding: 5px;width: 640px; word-wrap:break-word;">
     <h3>Answers:</h3><br/>
     <% @answers.each do |answer| %>
-      <div style="background-color: bisque; padding: 0 0 5px 5px; width: 495px; color: cornflowerblue; border: 2px solid #fff;">
+      <div style="background-color: aliceblue; padding: 0 0 5px 5px; width: 635px; border: 2px solid #fff;">
         <%= answer.description %>
       </div>
+      <div style="height: 100px; width: 650px;"></div>
     <% end %>
   </div>
-  <div style="height: 20px; width: 650px;"></div>
-  <div style="background-color:lightcyan ;padding: 5px;width: 640px; word-wrap:break-word;">
-    <h3>Your Answer:</h3><br/>
-    <%= form_for :answer, :url => answers_path(:id => @question.id) do |f| %>
-      <%= f.text_area :description, :cols => 70, :rows => 14 %><br/>
-      <%= f.submit "Post Answer" %>
-    <% end %>
-  </div>
+  <div style="height: 100px; width: 650px;"></div>
+  <% if current_user %>
+    <div style="background-color:lightcyan ;padding: 5px;width: 640px; word-wrap:break-word;">
+      <h3>Your Answer:</h3><br/>
+      <%= form_tag answers_path(:id => @question.id) do %>
+        <%= text_area :answer, :description, :cols => 70, :rows => 14 %><br/>
+        <%= submit_tag "Post Answer" %>
+      <% end %>
+    </div>
+  <% end %>
 
 </div>
