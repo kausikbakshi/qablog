@@ -91,6 +91,7 @@ a{ outline: none;}
     padding-right:8px;
 }
 .textnew{
+    text-decoration: none !important;
     font: bold 14px/24px "Arial", Helvetica, sans-serif;
     color:#FFF;
     padding-right:8px;

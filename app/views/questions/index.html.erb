@@ -1,0 +1,26 @@
+<% if current_user %>
+  <div style="background-color:cornsilk;padding: 5px; height: 120px; width: 500px;">
+    <div class="FL" style="margin: 5px; width: 120px;">
+      <%= image_tag current_user.gravatar_url(:size => 110, :default => "identicon") %>
+    </div>
+    <div class="FL" style="margin: 5px; width: 330px; padding-left: 20px;">
+      Name : <%= current_user.name %><br/>
+      Email : <%= current_user.email %>
+    </div>
+  </div>
+  <div style="height: 10px; width: 500px;"></div>
+  <div style="background-color:darkseagreen; padding: 10px; width: 490px;">
+    <h1>Your Questions</h1>
+  </div>
+  <div style="background-color: #ffffff;padding: 5px;">
+    <% @questions.each do |question| %>
+      <div style="background-color: bisque; padding: 0 0 5px 5px; width: 495px; color: cornflowerblue; border: 2px solid #fff;">
+        <%= link_to question.title, question_path(:id => question.id), :class => "qa" %>
+      </div>
+    <% end %>
+  </div>
+  <div style="height: 10px; width: 500px;"></div>
+  <div style="background-color:darkseagreen; padding: 10px; width: 490px;">
+    <h1>Your Answers</h1>
+  </div>
+<% end %>

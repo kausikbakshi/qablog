@@ -25,7 +25,7 @@
         <% if user_signed_in? %>
           <div class="FR" style="padding:5px 5px 0 0;">
             <div class="FL textnew">
-              <%= current_user.name %>&nbsp;&nbsp;<%= image_tag current_user.gravatar_url(:size => 30, :default => "identicon") %>
+              <%= link_to current_user.name, questions_path, :class => "textnew" %>&nbsp;&nbsp;<%= image_tag current_user.gravatar_url(:size => 30, :default => "identicon") %>
             </div>
             <div class="FL"></div>
             <div class="clear"></div>
@@ -39,7 +39,7 @@
           <div class="nab">
             <ul>
               <% if !user_signed_in? %>
-                <li style="background:none;"><%= link_to 'Home' %></li>
+                <li style="background:none;"><%= link_to 'Home', root_url %></li>
                 <li><%= link_to 'About Us' %></li>
                 <li><%= link_to 'Carrier' %></li>
                 <li><%= link_to 'Blog' %></li>
@@ -48,7 +48,7 @@
                 <li><%= link_to 'Sign Up', new_user_registration_path%></li>
                 <li>&nbsp;</li>
               <% else %>
-                <li style="background:none;"><a><%= link_to 'Home' %></a></li>
+                <li style="background:none;"><a><%= link_to 'Home', root_url %></a></li>
                 <li><%= link_to 'Ask Question', new_question_path %></li>
                 <li><%= link_to 'Account',edit_user_registration_path %></li>
                 <li><%= link_to 'Log Out',destroy_user_session_path, :method => 'delete'%></li>
