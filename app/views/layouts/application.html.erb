@@ -33,12 +33,10 @@
         <% end %>
         <div class="clear"></div>
         <div style="height:10px"></div>
-      </div>      
+      </div>
       <div class="nav_bg">
-
         <div class="main_wrap">
           <div class="nab">
-
             <ul>
               <% if !user_signed_in? %>
                 <li style="background:none;"><%= link_to 'Home' %></li>
@@ -51,20 +49,20 @@
                 <li>&nbsp;</li>
               <% else %>
                 <li style="background:none;"><a><%= link_to 'Home' %></a></li>
-                <li><%= link_to 'Ask Question' %></li>
+                <li><%= link_to 'Ask Question', new_question_path %></li>
                 <li><%= link_to 'Account',edit_user_registration_path %></li>
                 <li><%= link_to 'Log Out',destroy_user_session_path, :method => 'delete'%></li>
               <% end %>
             </ul>
-
           </div>
         </div>
       </div>
-
-      <div>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-      </div>
+      <% if flash[:alert] or flash[:notice] %>
+        <div id="notice" <% if flash[:alert] or flash[:notice] %> class="warning"<% end %>>
+          <%= flash[:alert] || flash[:notice] %>
+        </div>
+        <script type="text/javascript">setTimeout("$('#notice').hide();", 5000)</script>
+      <% end %>
       <div class="main_wrap">
         <div style="height:8px;"></div>
         <div></div>
