@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   def index
     @questions = Question.all(:conditions=>{:user_id => current_user.id}, :order => "created_at desc")
+    @answers = Answer.find_all_by_user_id(current_user.id)
   end
   def new
     @question = Question.new

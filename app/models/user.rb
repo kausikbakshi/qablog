@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   gravtastic
 
   has_many :questions
-  has_many :answer, :through => :questions
+  has_many :answers
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

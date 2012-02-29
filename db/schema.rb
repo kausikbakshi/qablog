@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20120227154119) do
     t.integer  "vote",        :default => 0
     t.integer  "question_id"
     t.string   "username"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

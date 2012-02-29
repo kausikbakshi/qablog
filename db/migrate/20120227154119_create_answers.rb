@@ -5,6 +5,7 @@ class CreateAnswers < ActiveRecord::Migration
       t.integer     :vote,        :default => 0
       t.integer     :question_id
       t.string      :username
+      t.integer     :user_id
       t.timestamps
     end
   end

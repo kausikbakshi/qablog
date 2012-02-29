@@ -6,6 +6,15 @@
   <div style="background-color:aliceblue ;padding: 5px;width: 640px; word-wrap:break-word;">
     <h3>Question:</h3><br/>
     <%= @question.description %>
+    <div style="background-color:aquamarine ;padding: 5px;width: 630px; word-wrap:break-word; height: 40px;">
+      <div class="FL" style="width: 400px;">
+        <h3>Name: <%= @question.user.name %></h3>
+        <h4>Votes: <%= @question.vote %></h4>
+      </div>
+      <div class="FR" style="width: 105px;">
+        <a href="" class="qav"><h4>Vote This Question</h4></a>
+      </div>
+    </div>
   </div>
   <div style="height: 10px; width: 650px;"></div>
   <div style="background-color:lightcyan ;padding: 5px;width: 640px; word-wrap:break-word;">
@@ -13,6 +22,15 @@
     <% @answers.each do |answer| %>
       <div style="background-color: aliceblue; padding: 0 0 5px 5px; width: 635px; border: 2px solid #fff;">
         <%= answer.description %>
+        <div style="background-color:aquamarine ;padding: 5px;width: 620px; word-wrap:break-word; height: 40px;">
+          <div class="FL" style="width: 400px;">
+            <h3>Name: <%= answer.user.name %></h3>
+            <h4>Votes: </h4>
+          </div>
+          <div class="FR" style="width: 105px;">
+            <a href="" class="qav"><h4>Vote This Answer</h4></a>
+          </div>
+        </div>
       </div>
       <div style="height: 100px; width: 650px;"></div>
     <% end %>

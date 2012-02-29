@@ -46,6 +46,11 @@ a{ outline: none;}
     font: normal 16px Georgia, "Times New Roman", Times, serif;
     color: #5E0529;
 }
+.qav{
+    text-decoration: none !important;
+    font: normal 12px Georgia, "Times New Roman", Times, serif;
+    color: #5E0529;
+}
 .warning{
     font-weight: bold;font-size:13px;background-color:#44A4C2;padding: 10px;border: none;text-align: center;color:#ffffff;
 }
