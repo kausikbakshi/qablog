@@ -4,8 +4,20 @@ Qablog::Application.routes.draw do
 
   
   resources :users
-  resources :questions
-  resources :answers
+  resources :questions do
+    member do
+      match 'vote'
+    end
+    collection do
+    end
+  end
+  resources :answers do
+    member do
+      match 'vote'
+    end
+    collection do
+    end
+  end
   resources :home
 
   root :to => "home#index"

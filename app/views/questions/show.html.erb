@@ -6,14 +6,16 @@
   <div style="background-color:aliceblue ;padding: 5px;width: 640px; word-wrap:break-word;">
     <h3>Question:</h3><br/>
     <%= @question.description %>
-    <div style="background-color:aquamarine ;padding: 5px;width: 630px; word-wrap:break-word; height: 40px;">
+    <div style="background-color:aquamarine ;padding: 5px;width: 630px; word-wrap:break-word; height: 50px;">
       <div class="FL" style="width: 400px;">
-        <h3>Name: <%= @question.user.name %></h3>
-        <h4>Votes: <%= @question.vote %></h4>
+        <h4>Name: <%= @question.user.name %></h4>
+        <h4>Votes <p id ="qvote"><%= @question.vote %></p></h4>
       </div>
-      <div class="FR" style="width: 105px;">
-        <a href="" class="qav"><h4>Vote This Question</h4></a>
-      </div>
+      <% if current_user && @question.user_id != current_user.id  %>
+        <div class="FR" style="width: 105px;">
+          <h4><%= link_to "Vote This Question",vote_question_path(:id => @question.id),:class =>"qav", :id => "vote_question"%></h4>
+        </div>
+      <% end %>
     </div>
   </div>
   <div style="height: 10px; width: 650px;"></div>
@@ -22,14 +24,16 @@
     <% @answers.each do |answer| %>
       <div style="background-color: aliceblue; padding: 0 0 5px 5px; width: 635px; border: 2px solid #fff;">
         <%= answer.description %>
-        <div style="background-color:aquamarine ;padding: 5px;width: 620px; word-wrap:break-word; height: 40px;">
+        <div style="background-color:aquamarine ;padding: 5px;width: 620px; word-wrap:break-word; height: 50px;">
           <div class="FL" style="width: 400px;">
-            <h3>Name: <%= answer.user.name %></h3>
-            <h4>Votes: </h4>
+            <h4>Name: <%= answer.user.name %></h4>
+            <h4>Votes <p id="avote"><%= answer.vote %></p></h4>
           </div>
-          <div class="FR" style="width: 105px;">
-            <a href="" class="qav"><h4>Vote This Answer</h4></a>
-          </div>
+          <% if current_user && answer.user_id != current_user.id  %>
+            <div class="FR" style="width: 105px;">
+              <h4><%= link_to "Vote This Answer", vote_answer_path(:id => answer.id),:class =>"qav", :id => "vote_answer"%></h4>
+            </div>
+          <% end %>
         </div>
       </div>
       <div style="height: 100px; width: 650px;"></div>
@@ -45,5 +49,4 @@
       <% end %>
     </div>
   <% end %>
-
 </div>

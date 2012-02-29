@@ -20,4 +20,16 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @answers = @question.answers
   end
+
+  def vote
+    @question = Question.find(params[:id])
+    vote = @question.vote.to_i + 1
+    begin
+      if @question.update_attribute('vote', vote)
+        redirect_to question_path(:id => @question.id), :notice => "Voting Successful"
+      end
+    rescue
+      redirect_to question_path(:id => @question.id), :notice => "Voting Unsuccessful"
+    end
+  end
 end
