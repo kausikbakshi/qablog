@@ -4,4 +4,5 @@ class Question < ActiveRecord::Base
 
   attr_accessible :title, :description, :vote, :user_id, :answer_id
   validates :title, :presence => true
+  validates :description, :presence => true
 end
