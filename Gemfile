@@ -6,7 +6,8 @@ gem 'devise'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql'
+#gem 'mysql'
+gem 'pg', '~> 0.12' 
 gem 'will_paginate', :git => "git://github.com/akitaonrails/will_paginate.git", :branch => "rails3.1"
 gem 'gravtastic'
 
